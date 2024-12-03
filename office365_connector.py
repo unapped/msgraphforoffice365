@@ -24,7 +24,7 @@ import sys
 import tempfile
 import time
 from copy import deepcopy
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import encryption_helper
 import phantom.app as phantom
@@ -40,6 +40,11 @@ from phantom.vault import Vault
 
 from office365_consts import *
 from process_email import ProcessEmail
+
+from urllib.parse import quote
+from ipaddress import IPv4Network, IPv6Network, ip_network
+import uuid
+import process_email
 
 TC_FILE = "oauth_task.out"
 SERVER_TOKEN_URL = "https://login.microsoftonline.com/{0}/oauth2/v2.0/token"
